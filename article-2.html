@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Партнёр меняется, сценарий остаётся. О том, что мы выбираем не только человека, но и то, что между нами начнёт происходить.">
+<title>Я выбрала наконец другого. Почему опять не складывается? — Марина Сушенцева</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #faf8f4;
+    --ink: #1f1b16;
+    --ink-soft: #4a423a;
+    --ink-mute: #8a7f73;
+    --teal: #226e75;
+    --teal-hover: #1a565c;
+    --line: #e8e2d6;
+    --line-soft: #f0ebde;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .progress {
+    position: fixed; top: 0; left: 0;
+    height: 2px; width: 0;
+    background: var(--teal);
+    z-index: 100;
+    transition: width 0.05s linear;
+  }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  header {
+    padding: 36px 0 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links { display: flex; gap: 26px; flex-wrap: wrap; }
+
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-links a.current {
+    color: var(--ink);
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 2px;
+  }
+
+  article {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 0 48px;
+  }
+
+  .breadcrumb {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+    margin-bottom: 24px;
+  }
+
+  .breadcrumb a {
+    color: var(--ink-mute);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover { color: var(--teal); }
+
+  .article-eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(36px, 5.4vw, 54px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 36px;
+  }
+
+  .disclaimer {
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    margin-bottom: 56px;
+    border-radius: 4px;
+  }
+
+  .article-body {
+    font-size: 18px;
+    line-height: 1.78;
+    color: var(--ink-soft);
+  }
+
+  .article-body p { margin-bottom: 1.4em; }
+
+  .article-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 56px 0 24px;
+    letter-spacing: -0.005em;
+  }
+
+  .article-body blockquote {
+    margin: 36px 0;
+    padding: 4px 0 4px 28px;
+    border-left: 2px solid var(--teal);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .article-body strong { font-weight: 500; color: var(--ink); }
+  .article-body em { font-style: italic; }
+
+  .pull-quote {
+    margin: 56px 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(24px, 3.2vw, 30px);
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .article-end {
+    text-align: center;
+    margin: 72px 0 0;
+    color: var(--ink-mute);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 0.6em;
+  }
+
+  .next-section {
+    max-width: 680px;
+    margin: 80px auto 0;
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--line);
+  }
+
+  .next-section .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    margin-bottom: 18px;
+  }
+
+  .next-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+
+  .next-link:hover { transform: translateX(6px); }
+
+  .next-link h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+  }
+
+  .next-link:hover h3 { color: var(--teal); }
+
+  .next-link .arrow {
+    color: var(--teal);
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .next-link:hover .arrow { transform: translateX(4px); }
+
+  .cta {
+    max-width: 680px;
+    margin: 0 auto 80px;
+    padding: 48px 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .cta p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 520px;
+    margin: 0 auto 24px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border-radius: 0;
+    font-weight: 400;
+  }
+
+  .btn-primary { background: var(--teal); color: #ffffff; }
+  .btn-primary:hover { background: var(--teal-hover); }
+  .btn-secondary { color: var(--ink-soft); border: 1px solid var(--line); }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+  footer {
+    padding: 36px 0 48px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-mute);
+    font-size: 13px;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-row a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .footer-row a:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  article > * { animation: fadeUp 0.7s ease both; }
+  article > *:nth-child(1) { animation-delay: 0.05s; }
+  article > *:nth-child(2) { animation-delay: 0.12s; }
+  article > *:nth-child(3) { animation-delay: 0.18s; }
+  article > *:nth-child(4) { animation-delay: 0.24s; }
+  article > *:nth-child(5) { animation-delay: 0.30s; }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 22px; }
+    header { padding: 24px 0 20px; }
+    nav { gap: 14px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 13px; }
+    article { padding: 48px 0 32px; }
+    .article-body { font-size: 17px; line-height: 1.7; }
+    .pull-quote { font-size: 22px; margin: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="wrap">
+  <header>
+    <nav>
+      <a href="https://withmarina.co/" class="brand">Марина Сушенцева</a>
+      <div class="nav-links">
+        <a href="https://withmarina.co/about.html">Обо мне</a>
+        <a href="https://withmarina.co/index.html#method">Метод</a>
+        <a href="https://withmarina.co/education.html">Образование</a>
+        <a href="blog.html" class="current">Блог</a>
+        <a href="https://withmarina.co/index.html#contact">Записаться</a>
+      </div>
+    </nav>
+  </header>
+
+  <article>
+    <div class="breadcrumb"><a href="blog.html">← все статьи</a></div>
+
+    <div class="article-eyebrow">О выборе партнёра</div>
+
+    <h1>Я выбрала наконец другого. Почему опять не складывается?</h1>
+
+    <div class="disclaimer">
+      Все клинические наблюдения в этом тексте обобщённые. Это не описание конкретного клиента, а попытка показать механизм неосознанных, закрепившихся годами способов взаимодействия в отношениях.
+    </div>
+
+    <div class="article-body">
+      <p>Лера пришла с фразой, которую часто можно услышать в кабинете психолога: «Все мои отношения заканчиваются через год-два».</p>
+
+      <p>До этого было одно длинное, тяжёлое, разрушительное. После него она долго восстанавливалась, читала, ходила в терапию, разобрала, что её туда привело. И с тех пор всё новое начинается, проходит несколько месяцев, и обрывается. Каждый раз с другим мужчиной. Каждый раз непонятно, почему.</p>
+
+      <p>Она пыталась разобраться, задавалась вопросом, в чём причина: «Это были совершенно разные мужчины. Я каждый раз выбирала по-другому».</p>
+
+      <p>В этой фразе сходятся и надежда, и ловушка одновременно.</p>
+
+      <h2>Иллюзия выбора по типажу</h2>
+
+      <p>После болезненных отношений человек обычно приходит к выводу: «бывший был холодный, нарциссичный, контролирующий». Из этого рождается стратегия: «в следующий раз я выберу не такого».</p>
+
+      <p>И в следующий раз она действительно выбирает не такого. Другого, как кажется. Тёплого вместо холодного. Доступного вместо закрытого. Заботливого вместо контролирующего. Друзья подтверждают: «он совсем не похож на твоего предыдущего». На этом построена вся надежда.</p>
+
+      <p>И через какое-то время, иногда полгода, иногда два, она оказывается в ситуации, которая по ощущению идентична предыдущей. То же чувство, что её не видят, или что она снова обслуживает, или что любовь приходится заслуживать, или что она опять одна, хотя формально в отношениях.</p>
+
+      <p>Тогда становится видно, что ловушка была не там, где она её искала.</p>
+
+      <h2>Что повторяется на самом деле</h2>
+
+      <p>Когда мы выбираем партнёра, мы выбираем не только человека. Мы выбираем сценарий, который с этим человеком разыгрывается. То, что между нами начнёт происходить.</p>
+
+      <p>С разными людьми возникают разные сценарии. С одним вы будете тёплыми и расслабленными, с другим настороженными, с третьим постоянно доказывающими свою ценность. Это не только про них. Это про то, что складывается между двумя людьми, и что определяется не только их характерами, но и тем, что у каждого внутри: ожидания, страхи, привычные роли.</p>
+
+      <p>У каждого есть внутренний сценарий, по которому ему привычно быть в близости. Он складывается очень рано, в раннем детстве, в первых отношениях с теми, кто за нами ухаживал. Речь идёт не о первых романтических отношениях, а о первом опыте быть с другим человеком: ребёнок не выбирает родителя по внешности, ему нужна забота и любовь. Так формируется внутреннее ощущение, какая роль и какая динамика в близости ощущается как «настоящие отношения». Что должно происходить, чтобы это чувствовалось как близость.</p>
+
+      <p>И когда человек выбирает партнёра, он выбирает не глазами и не по чек-листу качеств (хотя иногда кажется именно так). Он выбирает чем-то более глубоким, тем, что узнаёт подходящие ощущения. Узнаёт человека, с которым внутренний сценарий сможет развернуться. Это происходит быстро и не осознаётся как выбор. Это ощущается как «между нами есть что-то», «нас сразу потянуло», «я чувствую, что это моё».</p>
+
+      <p>Если внутренний сценарий это «я заслуживаю любовь, обслуживая другого», человек найдёт того, кто эту услугу примет, кем бы он ни был по типажу. Если сценарий «настоящая любовь должна быть труднодостижимой», человек найдёт того, с кем она будет труднодостижимой. Если сценарий «я в близости одна, и мне приходится с этим справляться», человек найдёт того, рядом с кем будет одна.</p>
+
+      <div class="pull-quote">
+        Партнёр меняется. Сценарий остаётся.
+      </div>
+
+      <h2>Почему это так трудно увидеть</h2>
+
+      <p>Этот механизм невидим в момент выбора. Когда Лера знакомится с новым человеком, она видит человека. Видит, что он не похож на бывшего. Видит, что её к нему тянет. И не видит, что её тянет к нему именно потому, что с ним сценарий может развернуться.</p>
+
+      <p>Притяжение и узнавание подходящего сценария это одно и то же ощущение. Их невозможно различить изнутри. Когда мы говорим «между нами химия», мы не различаем, химия это потому что мы оба свободны и хотим строить хорошее, или химия потому что внутри у каждого что-то узнало в другом партнёра по сценарию.</p>
+
+      <p>Это становится видно только потом. Когда сценарий начинает разворачиваться, и оказывается, что Лера снова в нём же. И тогда первое, что она говорит: «я не понимаю, как это случилось, он же был совсем другим».</p>
+
+      <p>Он действительно был другим. Сценарий тот же.</p>
+
+      <h2>Как это выглядит вне самой ситуации</h2>
+
+      <p>Вы знакомитесь с разными людьми. Они действительно разные. И в какой-то момент в каждых отношениях возникает одно и то же чувство. Не одинаковое содержание событий, а одинаковое ощущение себя. То же одиночество. Та же усталость. То же ощущение, что вы стараетесь больше. То же ощущение, что вас не выбирают.</p>
+
+      <p>После двух-трёх таких циклов вы замечаете, что что-то не сходится в логике. Если все мужчины разные, почему чувство одно?</p>
+
+      <p>В этот момент часто появляется одна из двух защит.</p>
+
+      <p>Первая: «значит, со мной что-то не так, я какая-то сломанная».</p>
+
+      <p>Вторая: «значит, все мужчины такие». Обе избавляют от необходимости смотреть туда, где вопрос на самом деле живёт. На сценарий, который повторяется внутри вас.</p>
+
+      <p>Стоит сказать, что этот сценарий имеет свойство активироваться не только в романтических отношениях. Он появляется в дружбе, в рабочих отношениях с фигурой авторитета, в работе с психологом. Где есть значимая близость и зависимость от другого человека, там есть и условия для его разворачивания. И в кабинете, в работе психоаналитической направленности, его, в отличие от ситуаций «снаружи», можно увидеть как то, что происходит прямо сейчас, и поговорить об этом.</p>
+
+      <h2>Возвращаясь к Лере</h2>
+
+      <p>Когда Лера говорит «отношения обрываются», она говорит про факт об отношениях. Но на самом деле она формулирует факт о том, что повторяется в её способе быть в близости. Каждый раз отношения начинаются. Каждый раз доходят до точки, в которой разворачивается её внутренний сценарий. Каждый раз обрываются.</p>
+
+      <p>С каждым новым человеком она надеется, что в этот раз будет по-другому, потому что человек другой. И она права в том, что человек другой. Но недостаточно, чтобы был другим только человек.</p>
+
+      <div class="pull-quote">
+        Изменить можно не выбор партнёра. Изменить можно сценарий, который вы приносите в каждые следующие отношения.
+      </div>
+
+      <p>Это работа, которую человек делает на себя. И парадокс в том, что только после этой работы выбор партнёра тоже меняется. Это происходит не потому, что вы стали выбирать по другим критериям, а потому, что притягивать вас будут уже другие сценарии.</p>
+
+      <p>Если вы узнаёте в Лере что-то своё, возможно, имеет смысл подумать не о том, какого партнёра выбрать в следующий раз. А о том, что именно повторяется в каждых ваших отношениях, независимо от того, кто партнёр. Не «какие были они». А что между вами начинало происходить, и что вы при этом чувствовали о себе.</p>
+
+      <p>Это другой вопрос, чем «как мне выбрать правильно». Он не про следующего человека. Он про то, что вы приносите с собой в любые отношения, в которые входите.</p>
+
+      <p>Начать можно с вопроса: «если бы все ваши прошлые партнёры собрались в одной комнате, что было общего в том, какой вы с ними были и как себя ощущали? Не в том, какие были они. А в том, какой были вы».</p>
+
+      <div class="article-end">· · ·</div>
+    </div>
+  </article>
+
+  <div class="cta">
+    <p>Если что-то в этом тексте откликнулось, можно написать. Первая встреча — это знакомство, она ни к чему не обязывает.</p>
+    <div class="cta-buttons">
+      <a href="https://t.me/msyncing" class="btn btn-primary">Написать в Telegram</a>
+      <a href="https://withmarina.co/about.html" class="btn btn-secondary">Подробнее обо мне</a>
+    </div>
+  </div>
+
+  <div class="next-section">
+    <div class="label">Следующая статья</div>
+    <a href="article-3.html" class="next-link">
+      <h3>Тебе помочь? Нет, не надо <span class="arrow">→</span></h3>
+    </a>
+  </div>
+
+  <footer>
+    <div class="footer-row">
+      <div>
+        Также я веду канал <a href="https://t.me/BreakingTheLoop">Breaking the Loop</a> о повторяющихся сценариях и психоаналитической оптике.
+      </div>
+      <div>© Марина Сушенцева, 2026</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const progress = document.getElementById('progress');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    progress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+</script>
+
+</body>
+</html>
